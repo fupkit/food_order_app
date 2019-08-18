@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">food order app</string>
+    <string name="app_setting">設定</string>
+    <string name="enter">進入</string>
+    <string name="ordering">點餐</string>
+    <string name="my_order">我的訂單</string>
+    <string name="setting_developer_mode">開發人員模式</string>
+    <string name="setting_txt_url">伺服器網址</string>
 </resources>
