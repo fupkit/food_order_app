@@ -15,10 +15,10 @@ import com.google.firebase.iid.InstanceIdResult;
 import com.tonylau.foodorderapp.R;
 
 public class SplashActivity extends AppCompatActivity {
-
+    public static final String TAG = "SplashActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final String TAG = this.getClass().getName();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
     }

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MenuActivity"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    >
     <LinearLayout
         android:id="@+id/llOrder"
         android:layout_width="match_parent"
@@ -26,7 +27,8 @@
             android:layout_weight="0.5"
             android:text="@string/ordering"
             android:textSize="25sp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            />
     </LinearLayout>
     <LinearLayout
         android:id="@+id/llMyOrder"
@@ -48,6 +50,7 @@
             android:layout_weight="0.5"
             android:text="@string/my_order"
             android:textSize="25sp"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            />
     </LinearLayout>
 </LinearLayout>

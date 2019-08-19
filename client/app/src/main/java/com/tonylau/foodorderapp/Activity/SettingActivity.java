@@ -21,7 +21,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         sp = getSharedPreferences(GlobalData.PREF_SETTING, 0);
-        String url = sp.getString(GlobalData.PREF_KEY_URL, "http://192.168.0.103");
+        String url = sp.getString(GlobalData.PREF_KEY_URL, "http://192.168.0.103:3000");
         etURL = findViewById(R.id.etURL);
         etURL.setText(url);
         super.onPostResume();
