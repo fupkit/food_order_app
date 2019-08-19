@@ -1,16 +1,18 @@
-package com.tonylau.foodorderapp;
+package com.tonylau.foodorderapp.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.tonylau.foodorderapp.R;
+import com.tonylau.foodorderapp.Services.MessageService;
 
 public class MainActivity extends AppCompatActivity {
     TextView btnEnter;
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startService();
         btnEnter = findViewById(R.id.tvEnter);
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,5 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
         }
         return true;
+    }
+
+    private void startService() {
+        Intent intent = new Intent(MainActivity.this, MessageService.class);
+        startService(intent);
     }
 }

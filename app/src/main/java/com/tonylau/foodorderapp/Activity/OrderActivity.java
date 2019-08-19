@@ -1,14 +1,18 @@
-package com.tonylau.foodorderapp;
+package com.tonylau.foodorderapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MenuActivity extends AppCompatActivity {
+import com.tonylau.foodorderapp.R;
+
+public class OrderActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_order);
     }
 }
+
+

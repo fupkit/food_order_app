@@ -1,10 +1,13 @@
-package com.tonylau.foodorderapp;
+package com.tonylau.foodorderapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
+
+import com.tonylau.foodorderapp.GlobalData;
+import com.tonylau.foodorderapp.R;
 
 public class SettingActivity extends AppCompatActivity {
     SharedPreferences sp;
@@ -17,8 +20,8 @@ public class SettingActivity extends AppCompatActivity {
 
     @Override
     protected void onPostResume() {
-        sp = getSharedPreferences(AppStaticData.PREF_SETTING, 0);
-        String url = sp.getString(AppStaticData.PREF_KEY_URL, "http://192.168.0.103");
+        sp = getSharedPreferences(GlobalData.PREF_SETTING, 0);
+        String url = sp.getString(GlobalData.PREF_KEY_URL, "http://192.168.0.103");
         etURL = findViewById(R.id.etURL);
         etURL.setText(url);
         super.onPostResume();
@@ -27,7 +30,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(AppStaticData.PREF_KEY_URL, etURL.getText().toString());
+        editor.putString(GlobalData.PREF_KEY_URL, etURL.getText().toString());
         editor.apply();
         super.onPause();
     }

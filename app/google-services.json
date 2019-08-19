@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "9466803967",
+    "firebase_url": "https://food-order-app-96fc4.firebaseio.com",
+    "project_id": "food-order-app-96fc4",
+    "storage_bucket": "food-order-app-96fc4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9466803967:android:aa803367f2124ef9",
+        "android_client_info": {
+          "package_name": "com.tonylau.foodorderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9466803967-gnvrqq8lmpdngams03c0gkv1bircl6hd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8Iz78_TTn1iz9BJDHsZ1xW97n0XmmSHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9466803967-gnvrqq8lmpdngams03c0gkv1bircl6hd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
