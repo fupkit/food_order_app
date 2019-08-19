@@ -1,0 +1,172 @@
+{
+    "menu": [
+      {
+        "itemId": "1",
+        "item": "乾炒牛河",
+        "category": "主食",
+        "pricePerItem": "32"
+      },
+      {
+        "itemId": "2",
+        "item": "西炒飯",
+        "category": "主食",
+        "pricePerItem": "28"
+      },
+      {
+        "itemId": "3",
+        "item": "福建炒飯",
+        "category": "主食",
+        "pricePerItem": "35"
+      },
+      {
+        "itemId": "4",
+        "item": "叉燒飯",
+        "category": "主食",
+        "pricePerItem": "25"
+      },
+      {
+        "itemId": "5",
+        "item": "燒鴨飯",
+        "category": "主食",
+        "pricePerItem": "25"
+      },
+      {
+        "itemId": "6",
+        "item": "切雞飯",
+        "category": "主食",
+        "pricePerItem": "25"
+      },
+      {
+        "itemId": "7",
+        "item": "油雞飯",
+        "category": "主食",
+        "pricePerItem": "25"
+      },
+      {
+        "itemId": "8",
+        "item": "四寶飯",
+        "category": "主食",
+        "pricePerItem": "30"
+      },
+      {
+        "itemId": "8",
+        "item": "北菇蒸雞飯",
+        "category": "主食",
+        "pricePerItem": "22"
+      },
+      {
+        "itemId": "9",
+        "item": "焗豬扒飯",
+        "category": "主食",
+        "pricePerItem": "32"
+      },
+      {
+        "itemId": "10",
+        "item": "椰汁葡國雞飯",
+        "category": "主食",
+        "pricePerItem": "32"
+      },
+      {
+        "itemId": "11",
+        "item": "雞扒火腿腸仔飯",
+        "category": "主食",
+        "pricePerItem": "22"
+      },
+      {
+        "itemId": "12",
+        "item": "豬扒火腿腸仔飯",
+        "category": "主食",
+        "pricePerItem": "22"
+      },
+      {
+        "itemId": "13",
+        "item": "牛扒腸仔飯",
+        "category": "主食",
+        "pricePerItem": "22"
+      },
+      {
+        "itemId": "14",
+        "item": "可樂",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "15",
+        "item": "雪碧",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "16",
+        "item": "檸茶",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "17",
+        "item": "檸水",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "18",
+        "item": "奶茶",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "19",
+        "item": "咖啡",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "20",
+        "item": "好立克",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "21",
+        "item": "柯華田",
+        "category": "飲品",
+        "pricePerItem": "5"
+      },
+      {
+        "itemId": "22",
+        "item": "公司三文治",
+        "category": "其他",
+        "pricePerItem": "18"
+      },
+      {
+        "itemId": "23",
+        "item": "西多士",
+        "category": "其他",
+        "pricePerItem": "17"
+      },
+      {
+        "itemId": "24",
+        "item": "炸雞翼",
+        "category": "其他",
+        "pricePerItem": "13"
+      },
+      {
+        "itemId": "25",
+        "item": "炸雞脾",
+        "category": "其他",
+        "pricePerItem": "18"
+      },
+      {
+        "itemId": "26",
+        "item": "炸薯條",
+        "category": "其他",
+        "pricePerItem": "10"
+      },
+      {
+        "itemId": "27",
+        "item": "沙律",
+        "category": "其他",
+        "pricePerItem": "12"
+      }
+    ]
+  }
