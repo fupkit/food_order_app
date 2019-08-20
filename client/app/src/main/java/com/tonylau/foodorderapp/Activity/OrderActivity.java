@@ -4,7 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Messenger;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -18,14 +25,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class OrderActivity extends AppCompatActivity {
+    private static final String TAG = "OrderActivity";
     Set<String> category;
     RecyclerView rv;
     MenuAdapter adapter;
     Spinner spCat;
+    DataServiceReceiver receiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
+
 
         spCat = findViewById(R.id.spCat);
         ArrayList<String> cats = new ArrayList<>();
@@ -49,6 +60,21 @@ public class OrderActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
 
 
+        receiver = new DataServiceReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.data");
+        registerReceiver(receiver, filter);
+    }
+
+    private class DataServiceReceiver extends BroadcastReceiver
+    {
+        public DataServiceReceiver (){}
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d(TAG, "Menu data changed.");
+            adapter.notifyDataSetChanged();
+        }
     }
 }
 

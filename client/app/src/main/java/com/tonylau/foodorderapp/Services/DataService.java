@@ -65,10 +65,14 @@ public class DataService extends Service {
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo = cm.getActiveNetworkInfo();
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    Log.v(TAG, "Network connected.");
+//                    Log.v(TAG, "Network connected.");
                     SharedPreferences sp = getSharedPreferences(GlobalData.PREF_SETTING, 0);
                     String url = sp.getString(GlobalData.PREF_KEY_URL, "http://10.0.2.2:3000");
                     updateMenu(url);
+                    //send broadcast
+                    Intent intent = new  Intent();
+                    intent.setAction("android.intent.action.data");
+                    sendBroadcast(intent);
                 } else {
                     Log.e(TAG, "Network not connected.");
                 }
