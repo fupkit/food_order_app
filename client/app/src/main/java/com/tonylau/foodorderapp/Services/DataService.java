@@ -96,7 +96,7 @@ public class DataService extends Service {
             is = conn.getInputStream();
             Reader reader = new InputStreamReader(is, "UTF-8");
             Menu menu = gson.fromJson(reader, Menu.class);
-            Log.d(TAG, gson.toJson(menu));
+//            Log.d(TAG, gson.toJson(menu));
             GlobalData.menu = menu;
         } catch (Exception e) {
             Log.e(TAG, "", e);

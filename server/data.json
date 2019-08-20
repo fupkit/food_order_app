@@ -6,7 +6,7 @@
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 2,
@@ -14,7 +14,7 @@
       "category": "Staple Food",
       "pricePerItem": 28,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/WesternFriedRice.jpg"
     },
     {
       "itemId": 3,
@@ -22,7 +22,7 @@
       "category": "Staple Food",
       "pricePerItem": 35,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/HokkienFriedRice.jpg"
     },
     {
       "itemId": 4,
@@ -30,7 +30,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/1.jpg"
     },
     {
       "itemId": 5,
@@ -38,7 +38,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/2.jpg"
     },
     {
       "itemId": 6,
@@ -46,7 +46,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/3.jpg"
     },
     {
       "itemId": "7",
@@ -54,7 +54,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": "8",
@@ -62,7 +62,7 @@
       "category": "Staple Food",
       "pricePerItem": 30,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 8,
@@ -70,7 +70,7 @@
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 9,
@@ -78,7 +78,7 @@
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 10,
@@ -86,7 +86,7 @@
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 11,
@@ -94,7 +94,7 @@
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 12,
@@ -102,7 +102,7 @@
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 13,
@@ -110,7 +110,7 @@
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 14,
@@ -118,7 +118,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 15,
@@ -126,7 +126,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 16,
@@ -134,7 +134,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 17,
@@ -142,7 +142,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 18,
@@ -150,7 +150,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 19,
@@ -158,7 +158,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 20,
@@ -166,7 +166,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 21,
@@ -174,7 +174,7 @@
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 22,
@@ -182,7 +182,7 @@
       "category": "Others",
       "pricePerItem": 18,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 23,
@@ -190,7 +190,7 @@
       "category": "Others",
       "pricePerItem": 17,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 24,
@@ -198,7 +198,7 @@
       "category": "Others",
       "pricePerItem": 13,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 25,
@@ -206,7 +206,7 @@
       "category": "Others",
       "pricePerItem": 18,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 26,
@@ -214,7 +214,7 @@
       "category": "Others",
       "pricePerItem": 10,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     },
     {
       "itemId": 27,
@@ -222,7 +222,7 @@
       "category": "Others",
       "pricePerItem": 12,
       "remain": 50,
-      "imgPath": "http://127.0.0.1:3000/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/beef_chow_fun.jpeg"
     }
   ]
 }

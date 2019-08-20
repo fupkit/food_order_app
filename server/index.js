@@ -2,8 +2,9 @@ var express = require("express");
 var fs = require("fs");
 var app = express();
 
+var menu = JSON.parse(fs.readFileSync(__dirname +"/data.json"));
 app.get("/mobile_app/food_order_app/get_menu", (req, res, next) => {
-    res.json(JSON.parse(fs.readFileSync("data.json")));
+    res.json(menu);
 });
 
 app.use('/images', express.static(__dirname + '/images'));
