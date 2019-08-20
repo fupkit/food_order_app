@@ -6,7 +6,7 @@
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/1.jpeg"
     },
     {
       "itemId": 2,
@@ -14,7 +14,7 @@
       "category": "Staple Food",
       "pricePerItem": 28,
       "remain": 50,
-      "imgPath": "/images/WesternFriedRice.jpg"
+      "imgPath": "/images/2.jpg"
     },
     {
       "itemId": 3,
@@ -22,7 +22,7 @@
       "category": "Staple Food",
       "pricePerItem": 35,
       "remain": 50,
-      "imgPath": "/images/HokkienFriedRice.jpg"
+      "imgPath": "/images/3.jpg"
     },
     {
       "itemId": 4,
@@ -30,7 +30,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "/images/1.jpg"
+      "imgPath": "/images/4.jpg"
     },
     {
       "itemId": 5,
@@ -38,7 +38,7 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "/images/2.jpg"
+      "imgPath": "/images/5.jpg"
     },
     {
       "itemId": 6,
@@ -46,183 +46,183 @@
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "/images/3.jpg"
+      "imgPath": "/images/6.jpg"
     },
     {
-      "itemId": "7",
+      "itemId": 7,
       "item": "Soy Sauce Chicken Rice",
       "category": "Staple Food",
       "pricePerItem": 25,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/7.jpg"
     },
     {
-      "itemId": "8",
+      "itemId": 8,
       "item": "Four Treasure Rice",
       "category": "Staple Food",
       "pricePerItem": 30,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/8.jpg"
     },
     {
-      "itemId": 8,
+      "itemId": 9,
       "item": "Mushroom Steamed Chicken Rice",
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/9.jpg"
     },
     {
-      "itemId": 9,
+      "itemId": 10,
       "item": "Baked Pork Chop Rice",
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/10.jpg"
     },
     {
-      "itemId": 10,
+      "itemId": 11,
       "item": "Baked Coconut Chicken in Portuguese Style",
       "category": "Staple Food",
       "pricePerItem": 32,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/11.jpg"
     },
     {
-      "itemId": 11,
+      "itemId": 12,
       "item": "Chicken Chop with Sausages & Rice",
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/12.jpg"
     },
     {
-      "itemId": 12,
+      "itemId": 13,
       "item": "Pork Chop with Sausages & Rice",
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/13.jpg"
     },
     {
-      "itemId": 13,
+      "itemId": 14,
       "item": "Beef Steak with Sausages & Rice",
       "category": "Staple Food",
       "pricePerItem": 22,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/14.jpg"
     },
     {
-      "itemId": 14,
+      "itemId": 15,
       "item": "Coke",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/15.jpg"
     },
     {
-      "itemId": 15,
+      "itemId": 16,
       "item": "Sprite",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/16.jpg"
     },
     {
-      "itemId": 16,
+      "itemId": 17,
       "item": "Lemon Tea",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/17.jpg"
     },
     {
-      "itemId": 17,
+      "itemId": 18,
       "item": "Lemon Water",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/18.jpg"
     },
     {
-      "itemId": 18,
+      "itemId": 19,
       "item": "Milk Tea",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/19.jpg"
     },
     {
-      "itemId": 19,
+      "itemId": 20,
       "item": "Coffee",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/20.jpg"
     },
     {
-      "itemId": 20,
+      "itemId": 21,
       "item": "Horlicks",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/21.jpg"
     },
     {
-      "itemId": 21,
+      "itemId": 22,
       "item": "Ovaltine",
       "category": "Drink",
       "pricePerItem": 5,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/22.jpg"
     },
     {
-      "itemId": 22,
+      "itemId": 23,
       "item": "Sandwiches",
       "category": "Others",
       "pricePerItem": 18,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/23.jpg"
     },
     {
-      "itemId": 23,
+      "itemId": 24,
       "item": "French toast",
       "category": "Others",
       "pricePerItem": 17,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/24.jpg"
     },
     {
-      "itemId": 24,
+      "itemId": 25,
       "item": "Fried Chicken Wings",
       "category": "Others",
       "pricePerItem": 13,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/25.jpg"
     },
     {
-      "itemId": 25,
+      "itemId": 26,
       "item": "Fried Chicken Leg",
       "category": "Others",
       "pricePerItem": 18,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/26.jpg"
     },
     {
-      "itemId": 26,
+      "itemId": 27,
       "item": "French Fries",
       "category": "Others",
       "pricePerItem": 10,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/27.jpg"
     },
     {
-      "itemId": 27,
+      "itemId": 28,
       "item": "Salad",
       "category": "Others",
       "pricePerItem": 12,
       "remain": 50,
-      "imgPath": "/images/beef_chow_fun.jpeg"
+      "imgPath": "/images/28.jpg"
     }
   ]
 }
