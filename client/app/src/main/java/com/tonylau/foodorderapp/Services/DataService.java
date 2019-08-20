@@ -10,8 +10,10 @@ import android.os.AsyncTask;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.tonylau.foodorderapp.GlobalData;
 import com.tonylau.foodorderapp.GlobalFunc;
+import com.tonylau.foodorderapp.Object.Menu;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,27 +22,22 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class DataService extends Service {
     private static final String TAG = "DataService";
-
-    ConnectivityManager cm;
-    NetworkInfo networkInfo;
-
+    private ScheduledThreadPoolExecutor exec;
+    private DataServiceTask dst;
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(TAG, "DataService starting.");
-        cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        networkInfo = cm.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected()) {
-            Log.v(TAG, "Network connected.");
-            SharedPreferences sp = getSharedPreferences(GlobalData.PREF_SETTING, 0);
-            String url = sp.getString(GlobalData.PREF_KEY_URL, "http://10.0.2.2:3000");
-            DataServiceAsyncTask dataServiceAsyncTask = new DataServiceAsyncTask();
-            dataServiceAsyncTask.execute(url);
-        } else {
-            Log.e(TAG, "Network not connected.");
-        }
+        Log.v(TAG, "DataService starting. ");
+        exec = new ScheduledThreadPoolExecutor(1);
+        dst = new DataServiceTask();
+        long period = 10; // the period between successive executions
+        exec.scheduleAtFixedRate(dst, 0, period, TimeUnit.SECONDS);
+        long delay = 10; //the delay between the termination of one execution and the commencement of the next
+        exec.scheduleWithFixedDelay(dst, 0, delay, TimeUnit.SECONDS);
         Log.v(TAG, "DataService started.");
         return Service.START_STICKY;
     }
@@ -51,25 +48,39 @@ public class DataService extends Service {
         return null;
     }
 
-    private class DataServiceAsyncTask extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... strings) {
-            updateMenu(strings[0]);
-            return null;
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(exec != null) {
+            exec.shutdown();
+            exec = null;
         }
+    }
+
+    private class DataServiceTask implements Runnable{
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Log.d(TAG, "updateMenu finished.");
-            GlobalFunc.sleep(10000);
+        public void run() {
+            try {
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    Log.v(TAG, "Network connected.");
+                    SharedPreferences sp = getSharedPreferences(GlobalData.PREF_SETTING, 0);
+                    String url = sp.getString(GlobalData.PREF_KEY_URL, "http://10.0.2.2:3000");
+                    updateMenu(url);
+                } else {
+                    Log.e(TAG, "Network not connected.");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.e(TAG, e.getMessage(), e);
+            }
         }
     }
 
     private void updateMenu(String myUrl) {
         InputStream is = null;
-        int len = 500;
         try {
             myUrl = myUrl + "/mobile_app/food_order_app/get_menu";
             URL url = new URL(myUrl);
@@ -80,11 +91,13 @@ public class DataService extends Service {
             conn.setDoInput(true);
             conn.connect();
             int response = conn.getResponseCode();
+
+            Gson gson = new Gson();
             is = conn.getInputStream();
-
-            String contentAsString = readIt(is, len);
-            Log.d(TAG, contentAsString);
-
+            Reader reader = new InputStreamReader(is, "UTF-8");
+            Menu menu = gson.fromJson(reader, Menu.class);
+            Log.d(TAG, gson.toJson(menu));
+            GlobalData.menu = menu;
         } catch (Exception e) {
             Log.e(TAG, "", e);
         } finally {
@@ -99,13 +112,6 @@ public class DataService extends Service {
         }
     }
 
-    private String readIt(InputStream stream, int len)
-            throws IOException, UnsupportedEncodingException {
-        Reader reader = null;
-        reader = new InputStreamReader(stream, "UTF-8");
-        char[] buffer = new char[len];
-        reader.read(buffer);
-        return new String(buffer);
-    }
+
 
 }

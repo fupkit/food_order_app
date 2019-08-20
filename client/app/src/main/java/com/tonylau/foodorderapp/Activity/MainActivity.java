@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.tonylau.foodorderapp.GlobalFunc;
 import com.tonylau.foodorderapp.R;
 import com.tonylau.foodorderapp.Services.DataService;
 import com.tonylau.foodorderapp.Services.MessageService;
@@ -54,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void startService() {
         Intent intent1 = new Intent(MainActivity.this, MessageService.class);
+        stopService(intent1);
         startService(intent1);
 
         Intent intent2 = new Intent(MainActivity.this, DataService.class);
+        stopService(intent2);
         startService(intent2);
     }
 }

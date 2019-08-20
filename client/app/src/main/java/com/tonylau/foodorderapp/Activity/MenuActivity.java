@@ -2,6 +2,7 @@ package com.tonylau.foodorderapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -21,14 +22,16 @@ LinearLayout llMyOrder;
         llOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MenuActivity.this, OrderActivity.class);
+                startActivity(intent);
             }
         });
 
         llMyOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MenuActivity.this, MyOrderActivity.class);
+                startActivity(intent);
             }
         });
     }
