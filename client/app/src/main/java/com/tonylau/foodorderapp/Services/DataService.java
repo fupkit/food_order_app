@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.tonylau.foodorderapp.DB.ItemDAO;
 import com.tonylau.foodorderapp.GlobalData;
 import com.tonylau.foodorderapp.GlobalFunc;
 import com.tonylau.foodorderapp.Object.Menu;

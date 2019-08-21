@@ -31,6 +31,7 @@ public class OrderActivity extends AppCompatActivity {
     MenuAdapter adapter;
     Spinner spCat;
     DataServiceReceiver receiver;
+    IntentFilter filter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +61,7 @@ public class OrderActivity extends AppCompatActivity {
         rv.setAdapter(adapter);
 
 
-        receiver = new DataServiceReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction("android.intent.action.data");
-        registerReceiver(receiver, filter);
+
     }
 
     private class DataServiceReceiver extends BroadcastReceiver
@@ -76,6 +74,24 @@ public class OrderActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        receiver = new DataServiceReceiver();
+        filter = new IntentFilter();
+        filter.addAction("android.intent.action.data");
+        registerReceiver(receiver, filter);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(receiver != null) {
+            unregisterReceiver(receiver);
+        }
+    }
+
 }
 
 

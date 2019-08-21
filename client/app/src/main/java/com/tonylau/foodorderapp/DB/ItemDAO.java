@@ -51,14 +51,14 @@ public class ItemDAO {
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_NAME));
                 item.category = c.getString(c.getColumnIndex(
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_CATEGORY));
-                item. = c.getInt(c.getColumnIndex(
-                        ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID));
-                item.itemId = c.getInt(c.getColumnIndex(
-                        ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID));
-                item.itemId = c.getInt(c.getColumnIndex(
-                        ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID));
-                item.itemId = c.getInt(c.getColumnIndex(
-                        ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID));
+                item.price = c.getInt(c.getColumnIndex(
+                        ItemDbContract.ItemDbEntry.COLUMN_NAME_PRICE));
+                item.remain = c.getInt(c.getColumnIndex(
+                        ItemDbContract.ItemDbEntry.COLUMN_NAME_REMAIN));
+                item.finished = c.getInt(c.getColumnIndex(
+                        ItemDbContract.ItemDbEntry.COLUMN_NAME_FINISHED)) == 1;
+                item.imgPath = c.getString(c.getColumnIndex(
+                        ItemDbContract.ItemDbEntry.COLUMN_NAME_IMGPATH));
                 result.add(item);
             }
         }
