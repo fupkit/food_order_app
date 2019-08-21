@@ -3,7 +3,6 @@ package com.tonylau.foodorderapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.tonylau.foodorderapp.Object.Item;
 
-import java.net.URL;
 import java.util.List;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
@@ -50,15 +48,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         imageTask.execute(imageParams);
 
         holder.tvItemCat.setText(item.category);
-        holder.tvItemName.setText(item.item);
+        holder.tvItemName.setText(item.name);
         holder.tvRemain.setText(String.valueOf(item.remain));
-        holder.tvPrice.setText(String.valueOf(item.pricePerItem));
+        holder.tvPrice.setText(String.valueOf(item.price));
 
         holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO
-                Log.d(TAG, item.item +" Add to cart.");
+                Log.d(TAG, item.name +" Add to cart.");
             }
         });
     }

@@ -2,225 +2,225 @@
   "items": [
     {
       "itemId": 1,
-      "item": "Beef chow fun",
+      "name": "Beef chow fun",
       "category": "Staple Food",
-      "pricePerItem": 32,
+      "price": 32,
       "remain": 50,
       "imgPath": "/images/1.jpeg"
     },
     {
       "itemId": 2,
-      "item": "Hong Kong-Style Western Fried Rice",
+      "name": "Hong Kong-Style Western Fried Rice",
       "category": "Staple Food",
-      "pricePerItem": 28,
+      "price": 28,
       "remain": 50,
       "imgPath": "/images/2.jpg"
     },
     {
       "itemId": 3,
-      "item": "Hokkien Fried Rice",
+      "name": "Hokkien Fried Rice",
       "category": "Staple Food",
-      "pricePerItem": 35,
+      "price": 35,
       "remain": 50,
       "imgPath": "/images/3.jpg"
     },
     {
       "itemId": 4,
-      "item": "Barbecued Pork Rice",
+      "name": "Barbecued Pork Rice",
       "category": "Staple Food",
-      "pricePerItem": 25,
+      "price": 25,
       "remain": 50,
       "imgPath": "/images/4.jpg"
     },
     {
       "itemId": 5,
-      "item": "Barbecued Duck Rice",
+      "name": "Barbecued Duck Rice",
       "category": "Staple Food",
-      "pricePerItem": 25,
+      "price": 25,
       "remain": 50,
       "imgPath": "/images/5.jpg"
     },
     {
       "itemId": 6,
-      "item": "Chicken with Rice",
+      "name": "Chicken with Rice",
       "category": "Staple Food",
-      "pricePerItem": 25,
+      "price": 25,
       "remain": 50,
       "imgPath": "/images/6.jpg"
     },
     {
       "itemId": 7,
-      "item": "Soy Sauce Chicken Rice",
+      "name": "Soy Sauce Chicken Rice",
       "category": "Staple Food",
-      "pricePerItem": 25,
+      "price": 25,
       "remain": 50,
       "imgPath": "/images/7.jpg"
     },
     {
       "itemId": 8,
-      "item": "Four Treasure Rice",
+      "name": "Four Treasure Rice",
       "category": "Staple Food",
-      "pricePerItem": 30,
+      "price": 30,
       "remain": 50,
       "imgPath": "/images/8.jpg"
     },
     {
       "itemId": 9,
-      "item": "Mushroom Steamed Chicken Rice",
+      "name": "Mushroom Steamed Chicken Rice",
       "category": "Staple Food",
-      "pricePerItem": 22,
+      "price": 22,
       "remain": 50,
       "imgPath": "/images/9.jpg"
     },
     {
       "itemId": 10,
-      "item": "Baked Pork Chop Rice",
+      "name": "Baked Pork Chop Rice",
       "category": "Staple Food",
-      "pricePerItem": 32,
+      "price": 32,
       "remain": 50,
       "imgPath": "/images/10.jpg"
     },
     {
       "itemId": 11,
-      "item": "Baked Coconut Chicken in Portuguese Style",
+      "name": "Baked Coconut Chicken in Portuguese Style",
       "category": "Staple Food",
-      "pricePerItem": 32,
+      "price": 32,
       "remain": 50,
       "imgPath": "/images/11.jpg"
     },
     {
       "itemId": 12,
-      "item": "Chicken Chop with Sausages & Rice",
+      "name": "Chicken Chop with Sausages & Rice",
       "category": "Staple Food",
-      "pricePerItem": 22,
+      "price": 22,
       "remain": 50,
       "imgPath": "/images/12.jpg"
     },
     {
       "itemId": 13,
-      "item": "Pork Chop with Sausages & Rice",
+      "name": "Pork Chop with Sausages & Rice",
       "category": "Staple Food",
-      "pricePerItem": 22,
+      "price": 22,
       "remain": 50,
       "imgPath": "/images/13.jpg"
     },
     {
       "itemId": 14,
-      "item": "Beef Steak with Sausages & Rice",
+      "name": "Beef Steak with Sausages & Rice",
       "category": "Staple Food",
-      "pricePerItem": 22,
+      "price": 22,
       "remain": 50,
       "imgPath": "/images/14.jpg"
     },
     {
       "itemId": 15,
-      "item": "Coke",
+      "name": "Coke",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/15.jpg"
     },
     {
       "itemId": 16,
-      "item": "Sprite",
+      "name": "Sprite",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/16.jpg"
     },
     {
       "itemId": 17,
-      "item": "Lemon Tea",
+      "name": "Lemon Tea",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/17.jpg"
     },
     {
       "itemId": 18,
-      "item": "Lemon Water",
+      "name": "Lemon Water",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/18.jpg"
     },
     {
       "itemId": 19,
-      "item": "Milk Tea",
+      "name": "Milk Tea",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/19.jpg"
     },
     {
       "itemId": 20,
-      "item": "Coffee",
+      "name": "Coffee",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/20.jpg"
     },
     {
       "itemId": 21,
-      "item": "Horlicks",
+      "name": "Horlicks",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/21.jpg"
     },
     {
       "itemId": 22,
-      "item": "Ovaltine",
+      "name": "Ovaltine",
       "category": "Drink",
-      "pricePerItem": 5,
+      "price": 5,
       "remain": 50,
       "imgPath": "/images/22.jpg"
     },
     {
       "itemId": 23,
-      "item": "Sandwiches",
+      "name": "Sandwiches",
       "category": "Others",
-      "pricePerItem": 18,
+      "price": 18,
       "remain": 50,
       "imgPath": "/images/23.jpg"
     },
     {
       "itemId": 24,
-      "item": "French toast",
+      "name": "French toast",
       "category": "Others",
-      "pricePerItem": 17,
+      "price": 17,
       "remain": 50,
       "imgPath": "/images/24.jpg"
     },
     {
       "itemId": 25,
-      "item": "Fried Chicken Wings",
+      "name": "Fried Chicken Wings",
       "category": "Others",
-      "pricePerItem": 13,
+      "price": 13,
       "remain": 50,
       "imgPath": "/images/25.jpg"
     },
     {
       "itemId": 26,
-      "item": "Fried Chicken Leg",
+      "name": "Fried Chicken Leg",
       "category": "Others",
-      "pricePerItem": 18,
+      "price": 18,
       "remain": 50,
       "imgPath": "/images/26.jpg"
     },
     {
       "itemId": 27,
-      "item": "French Fries",
+      "name": "French Fries",
       "category": "Others",
-      "pricePerItem": 10,
+      "price": 10,
       "remain": 50,
       "imgPath": "/images/27.jpg"
     },
     {
       "itemId": 28,
-      "item": "Salad",
+      "name": "Salad",
       "category": "Others",
-      "pricePerItem": 12,
+      "price": 12,
       "remain": 50,
       "imgPath": "/images/28.jpg"
     }

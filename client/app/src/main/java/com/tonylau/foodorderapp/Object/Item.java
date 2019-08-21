@@ -1,10 +1,12 @@
 package com.tonylau.foodorderapp.Object;
 
+
 public class Item {
     public int itemId;
-    public String item;
+    public String name;
     public String category;
-    public int pricePerItem;
+    public int price;
     public int remain;
     public String imgPath;
+    public boolean finished = false;
 }
