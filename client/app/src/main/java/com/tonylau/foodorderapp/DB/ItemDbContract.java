@@ -12,7 +12,6 @@ public class ItemDbContract {
         public static final String COLUMN_NAME_PRICE = "PRICE";
         public static final String COLUMN_NAME_REMAIN = "REMAIN";
         public static final String COLUMN_NAME_IMGPATH = "IMGPATH";
-        public static final String COLUMN_NAME_FINISHED = "FINISHED";
     }
 
 }

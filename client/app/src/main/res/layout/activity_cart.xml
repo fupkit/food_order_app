@@ -5,19 +5,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MyOrderActivity">
+    tools:context=".Activity.CartActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_weight="0.9"
+        android:layout_height="0dp">
 
-        <ExpandableListView
-            android:id="@+id/elvOrder"
-            android:layout_height="match_parent"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrder"
             android:layout_width="match_parent"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="0.5dp" />
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,11 +25,11 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/elvOrder"
+            app:layout_constraintBottom_toBottomOf="@+id/rvOrder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/elvOrder"
+            app:layout_constraintTop_toTopOf="@+id/rvOrder"
             app:layout_constraintVertical_bias="1.0">
 
             <TextView
@@ -45,4 +43,12 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnOcfm"
+        android:layout_weight="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/order_confirm"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"/>
 </LinearLayout>

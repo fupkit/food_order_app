@@ -1,6 +1,7 @@
 package com.tonylau.foodorderapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -8,33 +9,31 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.tonylau.foodorderapp.Activity.OrderActivity;
 import com.tonylau.foodorderapp.DB.CartDAO;
-import com.tonylau.foodorderapp.Object.Item;
 import com.tonylau.foodorderapp.Object.OrderItem;
 
 import java.util.List;
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
-    private static final String TAG = "MenuAdapter";
-    private List<Item> mData;
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
+    private static final String TAG = "CartAdapter";
+    private List<OrderItem> mData;
     private LayoutInflater mInflater;
-    private OrderActivity context;
+    private Context context;
 
-    public MenuAdapter(OrderActivity context, List<Item> data) {
+    public CartAdapter(Context context, List<OrderItem> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
         this.context = context;
     }
 
-    public void setData(List<Item> data) {
+    public void setData(List<OrderItem> data) {
         this.mData = data;
     }
 
@@ -42,33 +41,34 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.adapter_menu_item, parent, false);
+        View view = mInflater.inflate(R.layout.adapter_cart_item, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the TextView in each cell
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Item item = mData.get(position);
+        final OrderItem item = mData.get(position);
         ImageTask imageTask = new ImageTask();
-        ImageParams imageParams = new ImageParams(holder, item.imgPath);
+        ImageParams imageParams = new ImageParams(holder, item.itemInfo.imgPath);
         imageTask.execute(imageParams);
 
-        holder.tvItemCat.setText(item.category);
-        holder.tvItemName.setText(item.name);
-        holder.tvRemain.setText(String.valueOf(item.remain));
-        holder.tvPrice.setText(String.valueOf(item.price));
+        holder.tvItemCat.setText(item.itemInfo.category);
+        holder.tvItemName.setText(item.itemInfo.name);
+        holder.tvQuantity.setText(String.valueOf(item.itemInfo.remain));
+        holder.tvPrice.setText(String.valueOf(item.itemInfo.price));
+        holder.tvQuantity.setText(String.valueOf(item.quantity));
+        holder.tvSubTotal.setText(String.valueOf(item.itemInfo.price * item.quantity));
 
-        holder.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, item.name +" Add to cart.");
+                Log.d(TAG, "Delete from cart :" +item.itemInfo.name);
                 CartDAO cartDAO = new CartDAO(context);
-                OrderItem orderItem = new OrderItem();
-                orderItem.itemId = item.itemId;
-                orderItem.quantity = 1;
-                cartDAO.insert(orderItem);
-                context.setQuantity();
+                cartDAO.delete(item.itemId);
+                Intent intent = new  Intent();
+                intent.setAction("android.intent.action.cart");
+                context.sendBroadcast(intent);
             }
         });
     }
@@ -114,18 +114,20 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         ImageView ivImgPath;
         TextView tvItemCat;
         TextView tvItemName;
-        TextView tvRemain;
+        TextView tvQuantity;
         TextView tvPrice;
-        Button btnAddToCart;
+        ImageButton btnDelete;
+        TextView tvSubTotal;
 
         ViewHolder(View itemView) {
             super(itemView);
             ivImgPath = itemView.findViewById(R.id.ivImgPath);
             tvItemCat = itemView.findViewById(R.id.tvItemCat);
             tvItemName = itemView.findViewById(R.id.tvItemName);
-            tvRemain = itemView.findViewById(R.id.tvRemain);
+            tvQuantity = itemView.findViewById(R.id.tvQuantity);
             tvPrice = itemView.findViewById(R.id.tvPrice);
-            btnAddToCart = itemView.findViewById(R.id.btnAddToCart);
+            tvSubTotal = itemView.findViewById(R.id.tvSubTotal);
+            btnDelete = itemView.findViewById(R.id.ibDelete);
         }
 
     }

@@ -14,26 +14,33 @@ import java.util.List;
 
 public class ItemDAO {
     private static final String TAG = "ItemDAO";
-    private ItemDbHelper dbHelper = null;
+    private MyDbHelper dbHelper = null;
+
     public ItemDAO(Context context) {
-        dbHelper = new ItemDbHelper(context);
+        dbHelper = new MyDbHelper(context);
     }
+
     public long insert(Item item) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = setValues(item);
         long newRowId;
-        newRowId = db.insert(ItemDbContract.ItemDbEntry.TABLE_NAME, null, values);
+        newRowId = db.insertWithOnConflict(ItemDbContract.ItemDbEntry.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_REPLACE);
         db.close();
+//        Log.d(TAG, "Item " + item.itemId + " inserted / updated.");
         return newRowId;
     }
+
     public void update(long id, Item item) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.update(ItemDbContract.ItemDbEntry.TABLE_NAME, setValues(item), ItemDbContract.ItemDbEntry._ID+" = ?", new String[]{String.valueOf(item.itemId)});
+        db.update(ItemDbContract.ItemDbEntry.TABLE_NAME, setValues(item), ItemDbContract.ItemDbEntry._ID + " = ?", new String[]{String.valueOf(item.itemId)});
+//        Log.d(TAG, "Item " + item.itemId + " updated.");
         db.close();
     }
+
     public void delete(long id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete(ItemDbContract.ItemDbEntry.TABLE_NAME, ItemDbContract.ItemDbEntry._ID+" = ?", new String[]{String.valueOf(id)});
+        db.delete(ItemDbContract.ItemDbEntry.TABLE_NAME, ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID + " = ?", new String[]{String.valueOf(id)});
+//        Log.d(TAG, "Item " + id + " deleted.");
         db.close();
     }
 
@@ -43,7 +50,7 @@ public class ItemDAO {
         try {
             Cursor c = db.rawQuery(
                     "SELECT * FROM " + ItemDbContract.ItemDbEntry.TABLE_NAME, null);
-            while ( c.moveToNext() ) {
+            while (c.moveToNext()) {
                 Item item = new Item();
                 item.itemId = c.getInt(c.getColumnIndex(
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_ITEMID));
@@ -55,14 +62,12 @@ public class ItemDAO {
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_PRICE));
                 item.remain = c.getInt(c.getColumnIndex(
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_REMAIN));
-                item.finished = c.getInt(c.getColumnIndex(
-                        ItemDbContract.ItemDbEntry.COLUMN_NAME_FINISHED)) == 1;
                 item.imgPath = c.getString(c.getColumnIndex(
                         ItemDbContract.ItemDbEntry.COLUMN_NAME_IMGPATH));
                 result.add(item);
             }
-        }
-        catch (SQLiteException e) {
+            c.close();
+        } catch (SQLiteException e) {
             e.printStackTrace();
             Log.e(TAG, e.getMessage(), e);
         }

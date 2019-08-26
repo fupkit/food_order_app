@@ -1,7 +1,9 @@
 package com.tonylau.foodorderapp;
 
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +18,7 @@ import java.util.UUID;
 
 public class GlobalFunc {
     public static final String TAG = "GlobalFunc";
+
     public static void sleep(long mills) {
         try {
             Thread.sleep(mills);
@@ -24,6 +27,7 @@ public class GlobalFunc {
             e.printStackTrace();
         }
     }
+
     public static boolean isServiceRunning(Context context, Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
@@ -33,6 +37,7 @@ public class GlobalFunc {
         }
         return false;
     }
+
     public static Bitmap getImageBitmap(String url) {
         Bitmap bm = null;
         try {
@@ -63,5 +68,15 @@ public class GlobalFunc {
             }
         }
         return GlobalData.uniqueID;
+    }
+
+    public static void showDialog(Context context, String message, String buttonText, DialogInterface.OnClickListener listener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(message);
+        builder.setCancelable(false);
+
+        builder.setNeutralButton(buttonText, listener);
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

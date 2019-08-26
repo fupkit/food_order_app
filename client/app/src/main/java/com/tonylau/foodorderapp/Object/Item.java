@@ -8,5 +8,4 @@ public class Item {
     public int price;
     public int remain;
     public String imgPath;
-    public boolean finished = false;
 }

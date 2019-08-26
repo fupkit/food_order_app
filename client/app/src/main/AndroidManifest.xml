@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.MyOrderActivity"></activity>
+        <activity android:name=".Activity.CartActivity"></activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel"
+            android:value="@string/default_notification_channel_id" />
+
+        <activity android:name=".Activity.MyOrderActivity" />
         <activity android:name=".Activity.OrderActivity" />
         <activity
             android:name=".Activity.SplashActivity"

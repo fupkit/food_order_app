@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.tonylau.foodorderapp.DB.ItemDAO;
 import com.tonylau.foodorderapp.GlobalData;
 import com.tonylau.foodorderapp.GlobalFunc;
+import com.tonylau.foodorderapp.Object.Item;
 import com.tonylau.foodorderapp.Object.Menu;
 
 import java.io.IOException;
@@ -30,16 +31,18 @@ public class DataService extends Service {
     private static final String TAG = "DataService";
     private ScheduledThreadPoolExecutor exec;
     private DataServiceTask dst;
+    private ItemDAO itemDAO;
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.v(TAG, "DataService starting. ");
+        Log.d(TAG, "DataService starting. ");
         exec = new ScheduledThreadPoolExecutor(1);
         dst = new DataServiceTask();
         long period = 10; // the period between successive executions
         exec.scheduleAtFixedRate(dst, 0, period, TimeUnit.SECONDS);
         long delay = 10; //the delay between the termination of one execution and the commencement of the next
         exec.scheduleWithFixedDelay(dst, 0, delay, TimeUnit.SECONDS);
-        Log.v(TAG, "DataService started.");
+        itemDAO = new ItemDAO(this);
+        Log.d(TAG, "DataService started.");
         return Service.START_STICKY;
     }
 
@@ -102,7 +105,12 @@ public class DataService extends Service {
             Reader reader = new InputStreamReader(is, "UTF-8");
             Menu menu = gson.fromJson(reader, Menu.class);
 //            Log.d(TAG, gson.toJson(menu));
-            GlobalData.menu = menu;
+            for(Item item : menu.items) {
+                itemDAO.insert(item);
+            }
+            Menu m2 = new Menu();
+            m2.items = itemDAO.getAll();
+            GlobalData.menu = m2;
         } catch (Exception e) {
             Log.e(TAG, "", e);
         } finally {
