@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tonylau.foodorderapp.DB.CartDAO;
+import com.tonylau.foodorderapp.DB.OrderDAO;
 import com.tonylau.foodorderapp.Object.Order;
 import com.tonylau.foodorderapp.Object.OrderItem;
 
@@ -77,8 +79,9 @@ public class OrderAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
+    public View getGroupView(final int i, boolean b, View view, ViewGroup viewGroup) {
         String oid = String.valueOf(getGroup(i).orderId);
+        final Order order = getGroup(i);
         if (view == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -88,6 +91,23 @@ public class OrderAdapter extends BaseExpandableListAdapter {
         tvGroupTitle.setText(context.getString(R.string.tag_order_id) + oid);
         TextView tvGroupTotal = view.findViewById(R.id.tvGroupTotal);
         setTotal(tvGroupTotal, getGroup(i));
+
+//        Button btnRemove = view.findViewById(R.id.btnRemove);
+//        if (order.done) {
+//            btnRemove.setVisibility(View.VISIBLE);
+//            btnRemove.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View btnView) {
+//                    Log.d(TAG, "View position "+ i + " remove onclick");
+//                    Log.d(TAG, "Order "+order.orderId + " remove onclick");
+//                    btnView.setFocusable(false);
+//                    OrderDAO orderDAO = new OrderDAO(context);
+//                    orderDAO.delete(order.orderId);
+//                    mData = orderDAO.getAll();
+//                    OrderAdapter.this.notifyDataSetChanged();
+//                }
+//            });
+//        }
         return view;
     }
 
@@ -108,6 +128,8 @@ public class OrderAdapter extends BaseExpandableListAdapter {
         holder.tvPrice.setText(String.valueOf(item.itemInfo.price));
         holder.tvQuantity.setText(String.valueOf(item.quantity));
         holder.tvSubTotal.setText(String.valueOf(item.quantity * item.itemInfo.price));
+
+
         return view;
     }
 
@@ -162,6 +184,7 @@ public class OrderAdapter extends BaseExpandableListAdapter {
             tvQuantity = itemView.findViewById(R.id.tvQuantity);
             tvPrice = itemView.findViewById(R.id.tvOrderPrice);
             tvSubTotal = itemView.findViewById(R.id.tvSubTotal);
+
         }
 
     }

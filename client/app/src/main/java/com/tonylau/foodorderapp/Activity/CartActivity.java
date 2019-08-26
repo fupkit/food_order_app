@@ -19,8 +19,10 @@ import android.widget.TextView;
 import com.tonylau.foodorderapp.CartAdapter;
 import com.tonylau.foodorderapp.DB.CartDAO;
 import com.tonylau.foodorderapp.DB.OrderDAO;
+import com.tonylau.foodorderapp.GlobalData;
 import com.tonylau.foodorderapp.GlobalFunc;
 import com.tonylau.foodorderapp.HttpHelper;
+import com.tonylau.foodorderapp.Object.HttpOrder;
 import com.tonylau.foodorderapp.Object.Order;
 import com.tonylau.foodorderapp.Object.OrderItem;
 import com.tonylau.foodorderapp.R;
@@ -70,10 +72,14 @@ public class CartActivity extends AppCompatActivity {
 
         @Override
         protected Order doInBackground(Void... voids) {
-            Order order = null;
+            Order order = new Order();
             try {
                 HttpHelper http = new HttpHelper(CartActivity.this, "/mobile_app/food_order_app/post_order");
-                order = (Order) http.doPost(OrderItem[].class.getName(), items.toArray(), Order.class.getName());
+                HttpOrder httpOrder = new HttpOrder();
+                httpOrder.fcmToken = GlobalData.fcmToken;
+                order.orderItems = items;
+                httpOrder.order = order;
+                order = (Order) http.doPost(HttpOrder.class.getName(), httpOrder, Order.class.getName());
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
             }
@@ -83,7 +89,7 @@ public class CartActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(final Order order) {
             super.onPostExecute(order);
-            if (order == null) {
+            if (order.orderId == null) {
                 DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

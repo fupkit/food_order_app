@@ -22,6 +22,9 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.Gson;
 import com.tonylau.foodorderapp.Activity.MyOrderActivity;
+import com.tonylau.foodorderapp.DB.OrderDAO;
+import com.tonylau.foodorderapp.Object.MessageData;
+import com.tonylau.foodorderapp.Object.Order;
 import com.tonylau.foodorderapp.R;
 
 import java.io.FileDescriptor;
@@ -54,21 +57,13 @@ public class MessageService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-
-//            if (/* Check if data needs to be processed by long running job */ true) {
-//                // For long-running tasks (10 seconds or more) use WorkManager.
-//                scheduleJob();
-//            } else {
-                // Handle message within 10 seconds
             sendNotification(new Gson().toJson(remoteMessage.getData()));
-//                handleNow();
-//            }
-
         }
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+//            sendNotification(new Gson().toJson(remoteMessage.getNotification().getBody()));
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -93,25 +88,7 @@ public class MessageService extends FirebaseMessagingService {
         // Instance ID token to your app server.
         sendRegistrationToServer(token);
     }
-    // [END on_new_token]
 
-    /**
-     * Schedule async work using WorkManager.
-     */
-    private void scheduleJob() {
-//        // [START dispatch_job]
-//        OneTimeWorkRequest work = new OneTimeWorkRequest.Builder(MyWorker.class)
-//                .build();
-//        WorkManager.getInstance().beginWith(work).enqueue();
-//        // [END dispatch_job]
-    }
-
-    /**
-     * Handle time allotted to BroadcastReceivers.
-     */
-    private void handleNow() {
-        Log.d(TAG, "Short lived task is done.");
-    }
 
     /**
      * Persist token to third-party servers.
@@ -138,11 +115,20 @@ public class MessageService extends FirebaseMessagingService {
 
         String channelId = getString(R.string.default_notification_channel_id);
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        Gson gson = new Gson();
+        MessageData data = gson.fromJson(messageBody, MessageData.class);
+        if(data.orderId > -1) {
+            OrderDAO orderDAO = new OrderDAO(this);
+            Order order = new Order();
+            order.orderId = data.orderId;
+            order.done = true;
+            orderDAO.update(data.orderId, order);
+        }
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
-                        .setContentTitle("Notification")
-                        .setContentText(messageBody)
+                        .setSmallIcon(R.mipmap.ic_launcher_foreground)
+                        .setContentTitle(data.title)
+                        .setContentText(data.body)
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
                         .setContentIntent(pendingIntent);

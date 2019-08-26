@@ -34,9 +34,22 @@ public class OrderDAO {
         }
     }
 
+    public int update(long orderId, Order order) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(OrderDbContract.OrderDbEntry.COLUMN_NAME_DONE, order.done);
+        return db.update(OrderDbContract.OrderDbEntry.TABLE_NAME, cv, OrderDbContract.OrderDbEntry.COLUMN_NAME_ORDERID + "=?", new String[]{String.valueOf(orderId)});
+    }
+
     public void delete(long id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.delete(OrderDbContract.OrderDbEntry.TABLE_NAME, OrderDbContract.OrderDbEntry.COLUMN_NAME_ITEMID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void deleteAll() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(OrderDbContract.OrderDbEntry.TABLE_NAME, null, null);
         db.close();
     }
 
@@ -104,6 +117,7 @@ public class OrderDAO {
                 item.itemInfo.remain = c2.getInt(c2.getColumnIndex(ItemDbContract.ItemDbEntry.COLUMN_NAME_REMAIN));
                 item.itemInfo.imgPath = c2.getString(c2.getColumnIndex(ItemDbContract.ItemDbEntry.COLUMN_NAME_IMGPATH));
                 order.orderItems.add(item);
+                order.done = c2.getInt(c2.getColumnIndex(OrderDbContract.OrderDbEntry.COLUMN_NAME_DONE)) == 1;
             }
             c2.close();
         } catch (Exception e) {

@@ -11,7 +11,7 @@ app.get("/mobile_app/food_order_app/get_menu", (req, res) => {
 
 app.post("/mobile_app/food_order_app/post_order", (req, res) => {
     console.log(JSON.stringify(req.body));
-    var items = req.body;
+    var items = req.body.order.orderItems;
     var success = false;
     try {
         items.forEach(item => {
@@ -25,7 +25,7 @@ app.post("/mobile_app/food_order_app/post_order", (req, res) => {
                 }
             })
         });
-    } catch(e) {
+    } catch (e) {
         console.log(e.message);
     }
     if (success) {
@@ -37,4 +37,45 @@ app.post("/mobile_app/food_order_app/post_order", (req, res) => {
 app.use('/images', express.static(__dirname + '/images'));
 app.listen(3000, () => {
     console.log("Server running on port 3000");
+});
+
+
+//firebase
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./food-order-app-firebase-key.json");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: ""
+});
+app.post("/mobile_app/food_order_app/send_nf", (req, res) => {
+    console.log(JSON.stringify(req.body));
+    var body = req.body;
+    var success = false;
+    var token = body.fcmToken;
+    var orderId = body.orderId;
+    var payload = {
+        data: {
+            orderId : orderId.toString(),
+            title: "VTC Canteen",
+            body: "Order " + orderId + " Finished! Please take your meal."
+        }
+    };
+
+    var options = {
+        priority: "high",
+        timeToLive: 60 * 60 * 24
+    };
+    admin.messaging().sendToDevice(token, payload, options)
+        .then(function (response) {
+            console.log("Successfully sent message:", response);
+            res.send({ "orderId": orderId });
+        })
+        .catch(function (error) {
+            console.log("Error sending message:", error);
+            res.send({ "orderId": -1 });
+        });
+    
+
 });
