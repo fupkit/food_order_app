@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "d164e18f-2718-4da2-ab7e-5f2e9910fa0c",
+		"name": "MobileApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getMenu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{path}}/mobile_app/food_order_app/get_menu",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"mobile_app",
+						"food_order_app",
+						"get_menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"itemId\": 1,\n        \"quantity\": 3\n    }\n]"
+				},
+				"url": {
+					"raw": "{{path}}/mobile_app/food_order_app/post_order",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"mobile_app",
+						"food_order_app",
+						"post_order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sendNotification",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fcmToken\": \"eabQh2W_WSA:APA91bGIgCbRon4ndVqJ2TLyP9FjV5dBFu3_X2BtdGZSBzBzWxksMRMPMo67_qDszW_lxzuEvLT-9BszYjRIuojEjaqu_FREpGS0GH2yQNnyBa9iHikQscBwhd6DmyCCEV33QR1elW_a\"\n}"
+				},
+				"url": {
+					"raw": "{{path}}/mobile_app/food_order_app/send_nf",
+					"host": [
+						"{{path}}"
+					],
+					"path": [
+						"mobile_app",
+						"food_order_app",
+						"send_nf"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
