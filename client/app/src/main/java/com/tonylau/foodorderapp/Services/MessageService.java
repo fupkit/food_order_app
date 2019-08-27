@@ -58,6 +58,10 @@ public class MessageService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
             sendNotification(new Gson().toJson(remoteMessage.getData()));
+            //send broadcast
+            Intent intent = new  Intent();
+            intent.setAction("android.intent.action.order.finished");
+            sendBroadcast(intent);
         }
 
         // Check if message contains a notification payload.

@@ -14,7 +14,7 @@
         android:layout_height="200dp"
         android:background="@drawable/btn_cte"
         android:text="@string/click_to_enter"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimaryDark"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="30sp"/>

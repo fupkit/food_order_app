@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tonylau.foodorderapp.Activity.MyOrderActivity;
 import com.tonylau.foodorderapp.DB.CartDAO;
 import com.tonylau.foodorderapp.DB.OrderDAO;
 import com.tonylau.foodorderapp.Object.Order;
@@ -32,9 +33,9 @@ import java.util.List;
 public class OrderAdapter extends BaseExpandableListAdapter {
     private static final String TAG = "OrderAdapter";
     private List<Order> mData;
-    private Context context;
+    private MyOrderActivity context;
 
-    public OrderAdapter(Context context, List<Order> data) {
+    public OrderAdapter(MyOrderActivity context, List<Order> data) {
         this.mData = data;
         this.context = context;
     }
@@ -79,9 +80,10 @@ public class OrderAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getGroupView(final int i, boolean b, View view, ViewGroup viewGroup) {
+    public View getGroupView(int i, boolean b, View view, ViewGroup viewGroup) {
         String oid = String.valueOf(getGroup(i).orderId);
-        final Order order = getGroup(i);
+        final int index = i;
+        final Order order = getGroup(index);
         if (view == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -92,22 +94,25 @@ public class OrderAdapter extends BaseExpandableListAdapter {
         TextView tvGroupTotal = view.findViewById(R.id.tvGroupTotal);
         setTotal(tvGroupTotal, getGroup(i));
 
-//        Button btnRemove = view.findViewById(R.id.btnRemove);
-//        if (order.done) {
-//            btnRemove.setVisibility(View.VISIBLE);
-//            btnRemove.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View btnView) {
-//                    Log.d(TAG, "View position "+ i + " remove onclick");
-//                    Log.d(TAG, "Order "+order.orderId + " remove onclick");
-//                    btnView.setFocusable(false);
-//                    OrderDAO orderDAO = new OrderDAO(context);
-//                    orderDAO.delete(order.orderId);
-//                    mData = orderDAO.getAll();
-//                    OrderAdapter.this.notifyDataSetChanged();
-//                }
-//            });
-//        }
+        Button btnRemove = view.findViewById(R.id.btnRemove);
+        btnRemove.setFocusable(false);
+        if (order.done) {
+            btnRemove.setVisibility(View.VISIBLE);
+            btnRemove.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View btnView) {
+                    Log.d(TAG, "View position "+ index + " remove onclick");
+                    Log.d(TAG, "Order "+order.orderId + " remove onclick");
+                    OrderDAO orderDAO = new OrderDAO(context);
+                    orderDAO.delete(order.orderId);
+                    mData = orderDAO.getAll();
+                    OrderAdapter.this.notifyDataSetChanged();
+                    context.setTotal();
+                }
+            });
+        } else {
+            btnRemove.setVisibility(View.INVISIBLE);
+        }
         return view;
     }
 

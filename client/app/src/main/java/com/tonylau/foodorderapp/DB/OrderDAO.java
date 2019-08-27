@@ -43,7 +43,7 @@ public class OrderDAO {
 
     public void delete(long id) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.delete(OrderDbContract.OrderDbEntry.TABLE_NAME, OrderDbContract.OrderDbEntry.COLUMN_NAME_ITEMID + " = ?", new String[]{String.valueOf(id)});
+        db.delete(OrderDbContract.OrderDbEntry.TABLE_NAME, OrderDbContract.OrderDbEntry.COLUMN_NAME_ORDERID + " = ?", new String[]{String.valueOf(id)});
         db.close();
     }
 

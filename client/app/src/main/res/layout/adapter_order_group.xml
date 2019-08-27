@@ -5,7 +5,7 @@
     <TextView
         android:id="@+id/tvGroupTitle"
         android:layout_width="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:textSize="24sp"
@@ -15,26 +15,26 @@
     <TextView
         android:id="@+id/tvGroupTotal"
         android:layout_width="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.4"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0.2"
         android:orientation="horizontal"
         android:gravity="center_vertical|end">
-        <!--<Button-->
-            <!--android:id="@+id/btnRemove"-->
-            <!--android:visibility="invisible"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/remove"-->
-            <!--android:gravity="center_vertical|end"-->
-            <!--android:background="@color/red"-->
-            <!--android:textColor="@color/white" />-->
+        <Button
+            android:id="@+id/btnRemove"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/remove"
+            android:gravity="center"
+            android:background="@color/red"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </LinearLayout>

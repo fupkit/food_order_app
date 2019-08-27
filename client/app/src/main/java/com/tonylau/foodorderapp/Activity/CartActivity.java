@@ -62,8 +62,18 @@ public class CartActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OrderTask orderTask = new OrderTask();
-                orderTask.execute();
+                if(items.size() > 0) {
+                    OrderTask orderTask = new OrderTask();
+                    orderTask.execute();
+                } else {
+                    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    };
+                    GlobalFunc.showDialog(CartActivity.this, "Empty cart!", "OK",listener);
+                }
+
             }
         });
     }
@@ -87,7 +97,8 @@ public class CartActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(final Order order) {
+        protected void onPostExecute(Order o) {
+            final Order order = o;
             super.onPostExecute(order);
             if (order.orderId == null) {
                 DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
@@ -116,6 +127,7 @@ public class CartActivity extends AppCompatActivity {
                         cartDAO.deleteAll();
                         Intent intent = new Intent(CartActivity.this, MyOrderActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 };
                 GlobalFunc.showDialog(CartActivity.this, "Order placed! Order id: " +order.orderId, "OK", listener);

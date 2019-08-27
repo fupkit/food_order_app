@@ -74,7 +74,6 @@ public class GlobalFunc {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
         builder.setCancelable(false);
-
         builder.setNeutralButton(buttonText, listener);
         AlertDialog alert = builder.create();
         alert.show();
